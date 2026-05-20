@@ -1,0 +1,14 @@
+variable_name,description,data_type
+MASKED_ID,integer,
+AGE,Age at last encounter,string
+SEX,Sex,
+RACE,Race,
+ETHNICITY,Ethnicity,
+EXTRACTION_DATE,Date of extraction,date
+BMI,BMI,
+HEIGHT,Height at last encounter,
+WEIGHT,Weight at last encounter,
+Acute bronchitis,accute bronchitis,number
+kidney failure,Acute kidney failure,
+Vitamin D deficiency,Vitamin D deficiency,
+xerosis_cutis,Xerosis cutis ,

@@ -1,0 +1,15 @@
+variable_name,description,data_type,min,max,units,enumerations,comment,variable_name_gen,data_type_gen,enumerations_gen
+MASKED_ID,,integer,,,,,,,string,
+AGE,Age at last encounter,string,,,,one;two;three;four;five;six;seven;eight;nine;ten,,,enumeration,15;38;39
+SEX,Sex,string,,,,,,,enumeration,Female;Male
+RACE,Race,string,,,,,,,enumeration,Asian;White
+ETHNICITY,Ethnicity,string,,,,,,,enumeration,Hispanic or Latino Origin;Not of Hispanic or Latino Origin
+EXTRACTION_DATE,Date of extraction,date,,,,,,,enumeration,6/6/2024
+BMI,BMI,string,,,,,,,enumeration,24.9;26.3;44.0
+HEIGHT,Height at last encounter,string,,,,,,,enumeration,60;62;64
+WEIGHT,Weight at last encounter,string,,,,,,,enumeration,160;180;251
+Acute bronchitis,Acute bronchitis,string,,,,,,,enumeration,0;1
+kidney failure,Acute kidney failure,string,,,,,,,enumeration,0;1
+Vitamin D deficiency,Vitamin D deficiency,string,,,,,,NOT FOUND IN DATA,,
+xerosis_cutis,Xerosis cutis ,string,,,,,,,number,
+ Vitamin D deficiency,,enumeration,,,,n;y,,NOT IN DICTIONARY,,
