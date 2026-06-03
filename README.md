@@ -217,3 +217,50 @@ validate_alignment -dd <data_dictionary> -df <datafile> [-o <output>]
 ```bash
 validate_alignment -dd data/mydata_dd.csv -df data/mydata.csv -o data/alignment_report.html
 ```
+
+---
+
+### `clean_code_column` — Clean and Validate Delimited Code Columns
+
+Normalizes a code column (for example, values like `|HP:0004323|HP:0000234|''|`), removes common formatting artifacts, validates each code token against a simple `PREFIX:value` pattern, and prints rich terminal summaries.
+
+Note: 'questionable' rows are rows containing data that could not be cleaned. 
+Extra attention should be paid to these rows.
+
+```bash
+clean_code_column -df <data_file> -c <column> [-o <output>]
+```
+
+#### Arguments
+
+| Argument | Required | Description |
+|---|---|---|
+| `-df` / `--data_file` | Yes | Path to the input CSV containing the code column. |
+| `-c` / `--column` | Yes | Name of the column to clean and validate. |
+| `-o` / `--output` | No | Output CSV path for the cleaned dataset. If omitted, defaults to `<input_dir>/deva_files/<stem>_cleaned_codes.csv`. |
+
+#### Terminal Outputs
+
+| Output | Description |
+|---|---|
+| Output 1 — Distinct Codes | Prints all distinct code values found across the full cleaned column as a single semicolon-delimited string. |
+| Output 2 — Questionable Rows | Prints rows where one or more code tokens fail format validation. |
+| Output 3 — Questionable CSV Path | Printed only when questionable rows exist and `-o` was provided; reports where the questionable-row CSV was written. |
+
+#### Output Behavior
+
+| Condition | Result |
+|---|---|
+| Always | Writes the cleaned dataframe to `-o` (or default output path) including `cleaned_col` and `correct_format` columns. |
+| `-o` provided and questionable rows exist | Also writes `<output_stem>_questionable.csv` containing `cleaned_col` and `correct_format`. |
+| There are no questionable rows | No CSV is created. |
+
+#### Examples
+
+```bash
+# Clean and validate an HPO-style code column
+clean_code_column -df data/hpo_column.csv -c other_condition -o data/hpo_column_cleaned_codes.csv
+
+# Use default output location and filename
+clean_code_column -df data/hpo_column.csv -c other_condition
+```
